@@ -46,3 +46,22 @@ This effectively rotates the array in-place without using extra space.
 -Space Complexity: O(1)
 
 ================================================================================================================================
+#Problem5️⃣: Next Permutation of an Integer Array
+    ->Given an array representing a permutation, rearrange it into the lexicographically next greater permutation.
+    ->If no such permutation exists, convert it to the lowest possible order (i.e., sorted ascending).
+-Solution: [NextPermutation.java](./NextPermutation.java)
+-Example:
+    1.Input: arr = [2, 4, 1, 7, 5, 0]
+    Output: [2, 4, 5, 0, 1, 7]
+    2.Input: arr = [3, 2, 1]
+    Output: [1, 2, 3]
+-Approach:
+    ->Traverse from right to find the first index pivot where arr[i] < arr[i+1].
+    ->If no pivot exists, reverse the entire array (because it's the last permutation).
+    ->Otherwise, from the right, find the smallest element greater than arr[pivot] and swap.
+    ->Finally, reverse the subarray from pivot+1 to end to form the next permutation.
+This ensures the next lexicographically greater permutation is generated in-place.
+-Time Complexity: O(n)
+-Space Complexity: O(1)
+
+================================================================================================================================

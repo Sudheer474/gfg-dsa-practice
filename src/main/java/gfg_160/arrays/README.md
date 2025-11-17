@@ -52,9 +52,9 @@ This effectively rotates the array in-place without using extra space.
 -Solution: [NextPermutation.java](./NextPermutation.java)
 -Example:
     1.Input: arr = [2, 4, 1, 7, 5, 0]
-    Output: [2, 4, 5, 0, 1, 7]
+      Output: [2, 4, 5, 0, 1, 7]
     2.Input: arr = [3, 2, 1]
-    Output: [1, 2, 3]
+      Output: [1, 2, 3]
 -Approach:
     ->Traverse from right to find the first index pivot where arr[i] < arr[i+1].
     ->If no pivot exists, reverse the entire array (because it's the last permutation).
@@ -63,5 +63,21 @@ This effectively rotates the array in-place without using extra space.
 This ensures the next lexicographically greater permutation is generated in-place.
 -Time Complexity: O(n)
 -Space Complexity: O(1)
+
+================================================================================================================================
+#Problem6️⃣: Find All Elements Occurring More Than ⌊n/3⌋ Times
+    ->Given an array of integers, return all elements that appear more than floor(n/3) times.
+    ->The result must be sorted.
+-Solution: [MajorityElements.java](./MajorityElements.java)
+-Examples:
+    1.Input:  [2, 2, 3, 1, 3, 2, 1, 1]
+      Output: [1, 2]
+    2.Input:  [-5, 3, -5]
+      Output: [-5]
+-Approach:
+    ->Use a HashMap to store element frequencies, then iterate through the map to collect all elements whose count exceeds n/3.
+    -?Finally, sort the result.
+-Time Complexity: O(n)
+-Space Complexity: O(n)
 
 ================================================================================================================================

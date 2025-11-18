@@ -81,3 +81,46 @@ This ensures the next lexicographically greater permutation is generated in-plac
 -Space Complexity: O(n)
 
 ================================================================================================================================
+#Problem7️⃣: Stock Buy and Sell – Multiple Transactions Allowed
+    ->You are given an array prices[] where prices[i] represents the price of a stock on day i. You may buy and sell multiple times, 
+      even on the same day, but you can hold only one stock at a time.
+    ->Your task is to compute the maximum profit possible.
+-Solution: [StockBuySellMTrnxs.java](./StockBuySellMTrnxs.java)
+-Example:
+    1.Input:  [100, 180, 260, 310, 40, 535, 695]
+      Output: 865
+      Explanation:
+          -Buy on day 0 → sell on day 3  → profit = 210
+          -Buy on day 4 → sell on day 6  → profit = 655
+          -Total profit = 210 + 655 = 865
+-Approach:
+    -The key idea is to accumulate profit on every upward price movement.
+    -If today’s price is higher than yesterday’s, we add the difference to the total profit.
+    -This effectively simulates buying before a rise and selling after it.
+-Time Complexity: O(n)
+-Space Complexity: O(1)
+
+================================================================================================================================
+#Problem8️⃣: Stock Buy and Sell – Max One Transaction Allowed
+    ->You are given an array prices[] where prices[i] is the stock price on day i. You may complete at most one transaction (1 buy + 1 sell).
+    ->Return the maximum profit, or 0 if no profitable transaction is possible.
+-Solution: [StockBuySellSTrnxs.java](./StockBuySellSTrnxs.java)
+-Examples:
+    1.Input:  [7, 10, 1, 3, 6, 9, 2]
+      Output: 8
+      Explanation:
+          -Buy at 1 (day 2), sell at 9 (day 5) → Profit = 8
+    2.Input:  [7, 6, 4, 3, 1]
+      Output: 0
+      Explanation:
+          -Prices are strictly decreasing → No profit possible.
+-Approach:
+    -Track the minimum price so far as you iterate.
+    -For each day:
+        -If the current price is lower, update the minimum.
+        -Otherwise, compute the possible profit and track the maximum.
+    -This ensures finding the best buy → sell pair.
+-Time Complexity: O(n)
+-Space Complexity: O(1)
+
+================================================================================================================================

@@ -1,0 +1,13 @@
+package gfg_160.arrays;
+
+public class StockBuySellSTrnxs {
+    public int maximumProfit(int prices[]) {
+        // Code here
+        int n=prices.length,buy=prices[0],profit=0;
+        for(int i=1;i<n;i++){
+            if(prices[i]<buy) buy=prices[i];
+            else profit=Math.max(profit,prices[i]-buy);
+        }
+        return profit;
+    }
+}

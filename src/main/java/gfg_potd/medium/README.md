@@ -20,20 +20,38 @@
 
 ================================================================================================================================
 #Problem-25/11/25: XOR of All Subarray XOR Values
-  ->You are given an integer array arr[]. The value of a subarray is defined as the bitwise XOR of all elements in that subarray.  
-  ->Your task is to compute the bitwise XOR of the values of **all possible subarrays** of arr[].
+    ->You are given an integer array arr[]. The value of a subarray is defined as the bitwise XOR of all elements in that subarray.  
+    ->Your task is to compute the bitwise XOR of the values of **all possible subarrays** of arr[].
 -Solution: [SubArrayXOR.java](./SubArrayXOR.java)
 -Examples:
     1. Input:  [1, 2, 3]  
        Output: 2
 -Approach:  
-  ->Observe that each element arr[i] contributes to the final XOR only if it appears in an odd number of subarrays.  
-  ->The frequency of arr[i] in all subarray XORs is: **(i + 1) * (n – i)**.  
-  ->If this frequency is odd, XOR it into the answer.  
-  ->This avoids generating all subarrays and computes the result efficiently.
+    ->Observe that each element arr[i] contributes to the final XOR only if it appears in an odd number of subarrays.  
+    ->The frequency of arr[i] in all subarray XORs is: **(i + 1) * (n – i)**.  
+    ->If this frequency is odd, XOR it into the answer.  
+    ->This avoids generating all subarrays and computes the result efficiently.
 -Time Complexity: **O(n)**
 -Space Complexity: **O(1)**
 
 ================================================================================================================================
-#Problem-25/11/25: AND In Range
+#Problem-26/11/25: AND In Range
+    ->You are given two integers l and r. Find the result after applying the series of Bitwise AND ( & ) operation on every natural 
+      number between the range l to r (including both).
+-Solution: AndInRange.java
+-Example:
+    1.Input: l = 8, r = 13
+      Output: 8
+    2.Input: l = 2, r = 3
+      Output: 2
+-Approach:
+    ->The key idea is to find the common prefix (same highest bits) of numbers between l and r.
+    ->If the highest set bit of l and r is the same, we include that bit in the answer and subtract it from both l and r, then continue checking lower bits.
+    ->If at any point the highest bits differ, further AND operations will zero out remaining bits.
+    ->Compute highest set bit (log₂) of l and r.
+    ->If both have the same highest bit, add that bit to the result and remove it from both numbers.
+    ->Repeat until the highest bits differ.
+    ->Return the accumulated result.
+-Time Complexity: O(log n)
+-Space Complexity: O(1)
 
